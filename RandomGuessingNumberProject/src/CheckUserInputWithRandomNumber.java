@@ -1,19 +1,19 @@
 public class CheckUserInputWithRandomNumber {
 
-    public void userNumberToCompareWithRandomNumber (int userNumber, int randomNumber, int score) {
+    public boolean userNumberToCompareWithRandomNumber (int userNumber, int randomNumber) {
 
-        score = 0;
+
 
         if (userNumber == randomNumber) {
 
             System.out.println("Well done! You guessed the number!");
-            score++;
+            return true;
         }
 
         else {
             System.out.println("Too bad! Try again");
         }
 
-        System.out.println("You guessed " + score + " numbers!");
+        return false;
     }
 }

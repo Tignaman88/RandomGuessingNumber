@@ -5,10 +5,10 @@ public class Main {
 
         int score = 0;
         int userGuessing;
+        int userTries = 0;
 
-        // Generate a random number between 0 and 10
-        RandomNumber rn = new RandomNumber();
-        int random = rn.randomNumber;
+
+
 
         CheckUserInputWithRandomNumber userInput = new CheckUserInputWithRandomNumber();
 
@@ -18,18 +18,41 @@ public class Main {
         System.out.println("Please enter a number between 0 and 10: ");
 
         while (true) {
+
+            // Generate a random number between 0 and 10
+            RandomNumber rn = new RandomNumber();
+            int random;
+            random = rn.randomNumber;
+
+
             String guessing = scanner.nextLine();
-            userGuessing = Integer.parseInt(guessing);
-            if (!isNumeric(guessing)) {
-                System.out.println("You have not entered a number, please try again: ");
+
+            if (guessing.equalsIgnoreCase("q")) break;
+
+            if (!isNumeric(guessing) || Integer.parseInt(guessing) > 10 || Integer.parseInt(guessing) < 0) {
+                System.out.println("You have not entered a number, or the number entered is" +
+                        " less than 0 or greater than 10, please try again: ");
+
             } else {
-                if (isNumeric(guessing)) {
                     // Compare user's guessing to random number
-                    userInput.userNumberToCompareWithRandomNumber(userGuessing, random, score);
-                } else if (guessing.equalsIgnoreCase("q")) {
-                    break;
-                }
+                    userGuessing = Integer.parseInt(guessing);
+                    if (userInput.userNumberToCompareWithRandomNumber(userGuessing, random)) {
+                        score++;
+                    }
+                userTries++;
+
             }
+
+
+
+            }
+
+
+
+        System.out.println("You guessed " + score + " out of " + userTries + " guessing!");
+
+        if (score == userTries && score > 0) {
+            System.out.println("You guessed all numbers, well done!");
         }
 
 
