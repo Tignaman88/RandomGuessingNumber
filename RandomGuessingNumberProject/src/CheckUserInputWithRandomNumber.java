@@ -10,9 +10,6 @@ public class CheckUserInputWithRandomNumber {
             return true;
         }
 
-        else {
-            System.out.println("Too bad! Try again");
-        }
 
         return false;
     }
