@@ -1,4 +1,4 @@
-import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
 public class Main {
@@ -26,7 +26,7 @@ public class Main {
 
             // Generate a random number between 0 and 100
             int random = (int) (Math.random() * 101);
-            System.out.println(random);
+
 
 
             while (isRightGuess) {
