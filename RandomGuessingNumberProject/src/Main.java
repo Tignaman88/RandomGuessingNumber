@@ -41,7 +41,11 @@ public class Main {
                 // If not, ask them to try again until a number is entered
                 if (!isNumeric(guessing)) {
                     System.out.println("You haven't entered a number, please try again: ");
-                } else {
+                } else if (Integer.parseInt(guessing) > 100 || Integer.parseInt(guessing) < 0) {
+                    System.out.println("Please only enter a number between 0 and 100: ");
+                }
+
+                else {
 
                     userGuessing = Integer.parseInt(guessing);
 
@@ -67,8 +71,9 @@ public class Main {
                                     isPlayerWantingToPlayAgain = false;
                                 } else if (playerWantsToPlay.equalsIgnoreCase("y")) {
                                     random = (int) (Math.random() * 101);
-                                    isRightGuess = true;
+                                    System.out.println("Please enter a number between 0 and 100: ");
                                     isPlayerWantingToPlayAgain = false;
+                                    isRightGuess = true;
                                 } else {
                                     System.out.println("You have not entered the right character, please try again: ");
                                 }
