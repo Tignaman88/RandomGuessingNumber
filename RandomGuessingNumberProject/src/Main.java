@@ -67,7 +67,6 @@ public class Main {
                                     isPlayerWantingToPlayAgain = false;
                                 } else if (playerWantsToPlay.equalsIgnoreCase("y")) {
                                     random = (int) (Math.random() * 101);
-                                    System.out.println(random);
                                     isRightGuess = true;
                                     isPlayerWantingToPlayAgain = false;
                                 } else {
@@ -106,9 +105,12 @@ public class Main {
 
 
         if (score == 1) {
+            System.out.println("Bye!");
             System.out.println("You guessed " + score + " number!");
-        } else System.out.println("You guessed " + score + " numbers!");
-
+        } else {
+            System.out.println("Bye!");
+            System.out.println("You guessed " + score + " numbers!");
+        }
 
     }
 
